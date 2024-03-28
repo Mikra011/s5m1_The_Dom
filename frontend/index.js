@@ -7,9 +7,19 @@ function moduleProject1() {
 
   // 👉 TASK 1 - Add a "widget" class name to widgets so CSS kicks in
   //  ✨ add your code here
+  const widgets = document.querySelectorAll('div')
+  widgets.forEach(widget => widget.classList.add('widget'))
 
   // 👉 TASK 2 - Build a "Quote of the Day" widget
   //  ✨ add your code here
+  const randomize = Math.floor(Math.random() * quotes.length) // eslint-disable-line
+  const randomQuote = quotes[randomize] // eslint-disable-line
+  const quote = document.createElement('div')
+  const quoteText = randomQuote.quote
+  quote.textContent = quoteText
+  const widget1 = document.querySelector('.quoteoftheday')
+  widget1.appendChild(quote)
+
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here
