@@ -13,7 +13,7 @@ function moduleProject1() {
   // 👉 TASK 2 - Build a "Quote of the Day" widget
   //  ✨ add your code here
   const randomize = Math.floor(Math.random() * quotes.length) // eslint-disable-line
-  const randomQuote = quotes[randomize] // eslint-disable-line
+  const randomQuote = quotes[randomize]                       // eslint-disable-line
   const quote = document.createElement('div')
   const quoteText = randomQuote.quote
   quote.textContent = quoteText
@@ -23,6 +23,18 @@ function moduleProject1() {
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here
+  const randomVerb1 = verbs[Math.floor(Math.random() * verbs.length)]       // eslint-disable-line
+  const randomVerb2 = verbs[Math.floor(Math.random() * verbs.length)]       // eslint-disable-line
+  const randomNoun1 = nouns[Math.floor(Math.random() * nouns.length)]       // eslint-disable-line
+  const randomNoun2 = nouns[Math.floor(Math.random() * nouns.length)]       // eslint-disable-line
+  const randomAdverb1 = adverbs[Math.floor(Math.random() * adverbs.length)] // eslint-disable-line
+  const randomAdverb2 = adverbs[Math.floor(Math.random() * adverbs.length)] // eslint-disable-line
+  const speechContainer = document.createElement('p')
+  const numboJumbo = `We need to ${randomVerb1} our ${randomNoun1} ${randomAdverb1} \n
+                      in order to ${randomVerb2} our ${randomNoun2} ${randomAdverb2}.` // ok this . made me crazy, I had to check solution, I have not found it.
+  speechContainer.textContent = numboJumbo
+  const widget2 = document.querySelector('.corporatespeak')
+  widget2.appendChild(speechContainer)
 
   // 👉 TASK 4 - Build a "Countdown" widget
   //  ✨ add your code here
