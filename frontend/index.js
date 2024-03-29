@@ -12,13 +12,17 @@ function moduleProject1() {
 
   // 👉 TASK 2 - Build a "Quote of the Day" widget
   //  ✨ add your code here
-  const randomize = Math.floor(Math.random() * quotes.length) // eslint-disable-line
-  const randomQuote = quotes[randomize]                       // eslint-disable-line
+  const randomize = Math.floor(Math.random() * quotes.length)               // eslint-disable-line
+  const randomQuote = quotes[randomize]                                     // eslint-disable-line
   const quote = document.createElement('div')
   const quoteText = randomQuote.quote
   quote.textContent = quoteText
   const widget1 = document.querySelector('.quoteoftheday')
   widget1.appendChild(quote)
+  const authorDate = document.createElement('div')
+  const { author, date} = randomQuote
+  authorDate.textContent = `${author} in ${date || 'an unknown date'}`
+  widget1.appendChild(authorDate)
 
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here
@@ -41,8 +45,7 @@ function moduleProject1() {
   const countdown = document.createElement('p')
   countdown.textContent = 'T-minus 5...'
   countdownElement.appendChild(countdown)
-  
-  
+
   let count = 4;
   function updateCountdown() {
     if (count > 0) {
@@ -57,9 +60,32 @@ function moduleProject1() {
 
   // 👉 TASK 5 - Build a "Friends" widget
   //  ✨ add your code here
+  const person = people[Math.floor(Math.random() * people.length)]          // eslint-disable-line
+  const personContainer = document.createElement('p')
+  document.querySelector('.friends').appendChild(personContainer)
+  const year = person.dateOfBirth.split('-')[0]
+  let widgetText = `${person.fname} ${person.lname} was born in ${year} and `
+
+  if (!person.friends.length) {
+    widgetText += 'has no friends.'
+  } else {
+    const friendNames = person.friends.map(friendId => {
+      const friend = people.find(p => p.id === friendId)                    // eslint-disable-line
+      return `${friend.fname} ${friend.lname}`
+    })
+
+    widgetText += `is friends with ${friendNames.join(', ').replace(/,(?=[^,]*$)/, ' and')}.`// the last part I have found and works, however I don really get it
+  }
+
+  personContainer.textContent = widgetText;
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
   //  ✨ add your code here
+  const widgets5 = document.querySelectorAll('section>div')
+  widgets5.forEach((widget, i) => {
+    widget.classList.add('widget')
+    widget.tabIndex = i + 1
+  })
 
   // 👆 WORK WORK ABOVE THIS LINE 👆
 }

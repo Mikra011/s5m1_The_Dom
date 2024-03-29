@@ -79,7 +79,7 @@ describe('Sprint 5 Module', () => {
     })
   })
 
-  describe.only('Task 4 - Countdown widget', () => {
+  describe('Task 4 - Countdown widget', () => {
     test('👉 [7] Counts from "T-minus 5..." to "Liftoff! 🚀"', () => {
       screen.getByText('Countdown')
       screen.getByText('T-minus 5...')
