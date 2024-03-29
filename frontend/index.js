@@ -20,7 +20,6 @@ function moduleProject1() {
   const widget1 = document.querySelector('.quoteoftheday')
   widget1.appendChild(quote)
 
-
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here
   const randomVerb1 = verbs[Math.floor(Math.random() * verbs.length)]       // eslint-disable-line
@@ -30,14 +29,31 @@ function moduleProject1() {
   const randomAdverb1 = adverbs[Math.floor(Math.random() * adverbs.length)] // eslint-disable-line
   const randomAdverb2 = adverbs[Math.floor(Math.random() * adverbs.length)] // eslint-disable-line
   const speechContainer = document.createElement('p')
-  const numboJumbo = `We need to ${randomVerb1} our ${randomNoun1} ${randomAdverb1} \n
+  const speechText = `We need to ${randomVerb1} our ${randomNoun1} ${randomAdverb1} \n
                       in order to ${randomVerb2} our ${randomNoun2} ${randomAdverb2}.` // ok this . made me crazy, I had to check solution, I have not found it.
-  speechContainer.textContent = numboJumbo
+  speechContainer.textContent = speechText
   const widget2 = document.querySelector('.corporatespeak')
   widget2.appendChild(speechContainer)
 
   // 👉 TASK 4 - Build a "Countdown" widget
   //  ✨ add your code here
+  const countdownElement = document.querySelector('.countdown');
+  const countdown = document.createElement('p')
+  countdown.textContent = 'T-minus 5...'
+  countdownElement.appendChild(countdown)
+  
+  
+  let count = 4;
+  function updateCountdown() {
+    if (count > 0) {
+      countdown.textContent = `T-minus ${count}...`
+      count--
+    } else {
+      countdown.textContent = "Liftoff! 🚀";
+      clearInterval(intervalId);
+    }
+  }
+  const intervalId = setInterval(updateCountdown, 1000);
 
   // 👉 TASK 5 - Build a "Friends" widget
   //  ✨ add your code here
